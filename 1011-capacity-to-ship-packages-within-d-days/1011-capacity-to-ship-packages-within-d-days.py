@@ -17,7 +17,7 @@ class Solution:
         if len(weights) < days:
             return -1
         
-        start, end = min(weights), sum(weights)
+        start, end = max(weights), sum(weights)
         res = 0
         while start <= end:
             mid = start + (end - start) // 2

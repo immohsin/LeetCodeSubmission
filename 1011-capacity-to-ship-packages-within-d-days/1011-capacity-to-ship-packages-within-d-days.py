@@ -26,4 +26,4 @@ class Solution:
                 end = mid - 1
             else:
                 start = mid + 1
-        return res   
+        return start   

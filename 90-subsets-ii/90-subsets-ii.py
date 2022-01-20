@@ -1,15 +1,14 @@
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        res = set()
-        def recur(arr, output):
-            if len(arr) == 0:
-                output = (*sorted(output),)
-                res.add(output)
-                return
-            recur(arr[1:], output)
-            output = (*output, arr[0])
-
-            recur(arr[1:], output)
-
-        recur(nums, tuple())
+        res = []
+        nums.sort()
+        def recur(arr, idx, out):
+            res.append(out.copy())
+            for i in range(idx, len(nums)):
+                if i > idx and arr[i] == arr[i-1]:
+                    continue
+                out.append(arr[i])
+                recur(arr, i+1, out)
+                out.pop()
+        recur(nums, 0, [])
         return res

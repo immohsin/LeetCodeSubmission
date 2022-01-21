@@ -4,16 +4,12 @@ from collections import Counter
 
 class Solution:
     def frequencySort(self, s: str) -> str:
-        heap = []
-        n = 0
-        res = ""
+        res = []
         d = Counter(s)
-        for k, v in d.items():
-            heapq.heappush(heap, (-v, k))
-            n+=1
-        while n:
+        heap = [(-v, k) for k, v in d.items()]
+        heapq.heapify(heap)
+        while heap:
             val, char = heapq.heappop(heap)
-            res+=(char * -val)
-            n-=1
-        return res
+            res.append(char * -val)
+        return "".join(res)
             

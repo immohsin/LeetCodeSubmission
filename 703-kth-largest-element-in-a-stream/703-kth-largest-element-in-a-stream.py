@@ -3,7 +3,7 @@ import heapq
 class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
-        self.heap =  [*nums]
+        self.heap =  nums
         self.n = 0
         self.k = k
         heapq.heapify(self.heap)

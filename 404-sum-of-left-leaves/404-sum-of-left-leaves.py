@@ -10,10 +10,10 @@ class Solution:
         def recur(node):
             if node == None:
                 return
-            recur(node.left)
             if node.left and node.left.left == None and node.left.right == None:
                 nonlocal res
                 res+=node.left.val
+            recur(node.left)
             recur(node.right)
         recur(root)
         return res

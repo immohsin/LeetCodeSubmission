@@ -9,5 +9,7 @@ class Solution:
             for j in range(len(new)-1,-1,-1):
                 s = ".".join(new[j:])
                 d[s] = d.get(s, 0) + rep
-        res = [str(v) + " " + k for k,v in d.items()]
+        for k,v in d.items():
+            s = str(v) + " " + k
+            res.append(s)
         return res

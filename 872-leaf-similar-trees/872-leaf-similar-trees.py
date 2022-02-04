@@ -15,8 +15,8 @@ class Solution:
 def get_leaf_node(node, arr):
     if node == None:
         return
-    get_leaf_node(node.left, arr)
     if node.left == None and node.right == None:
         arr.append(node.val)
+    get_leaf_node(node.left, arr)
     get_leaf_node(node.right, arr)
         

@@ -7,17 +7,15 @@ class Solution:
             else:
                 nums[i] = 0
 
-        prefix = [0] * n
-        prefix[0] = nums[0]
-        for i in range(1, n):
-            prefix[i] = nums[i] + prefix[i-1]
         res = 0
         d = {0: 1}
+        s = 0
         for i in range(n):
-            freq = d.get(prefix[i] - k)
+            s+= nums[i]
+            freq = d.get(s - k)
             if freq:
                 res+=freq
-            d[prefix[i]] = d.get(prefix[i], 0) + 1
+            d[s] = d.get(s, 0) + 1
         return res
                 
                 
